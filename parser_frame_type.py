@@ -4,20 +4,20 @@ import re #регулярные выражения
 import os
 import functions
 
-#Ссылка на сайт
-# url = 'https://www.netoptik.ru/yandexmarket.yml'
+#Скачиваем страницу, чтобы не обращаться на сервер
+url = 'https://www.netoptik.ru/yandexmarket.yml' #ссылка на сайт
 
 
-# req = requests.get(url)
-# src = req.text #получаем код страницы
+req = requests.get(url)
+src = req.text #получаем код страницы
 
 #Сохраняем в файл с обработкой ошибки
-# try:
-#     with open("index.xml", "w", encoding='utf-8') as file:
-#         file.write(src)
-# except UnicodeEncodeError:
-#     with open("index.xml", "w", encoding='utf-16') as file:
-#         file.write(src)
+try:
+    with open("index.xml", "w", encoding='utf-8') as file:
+        file.write(src)
+except UnicodeEncodeError:
+    with open("index.xml", "w", encoding='utf-16') as file:
+        file.write(src)
 
 
 # Чтение файла
